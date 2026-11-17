@@ -37,4 +37,20 @@ double mean_of_positives(const double a[], int n) {
 }
 
 void replace_elements(double a[], int n, double mean_neg, double mean_pos) {
+    int all_positive = 1;
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] <= 0) {
+            all_positive = 0;
+            break;
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            a[i] = mean_pos;
+        } else if (a[i] < 0 || all_positive) {
+            a[i] = mean_neg;
+        }
+    }
 }

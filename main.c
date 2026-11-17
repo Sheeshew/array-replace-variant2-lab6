@@ -28,7 +28,7 @@ int main(void) {
 void print_array(const double a[], int n) {
     int i = 0;
     while (i < n) {
-        printf("%.2f ", a[i]);
+        printf("[%2d]=%7.2f  ", i + 1, a[i]);
         i++;
     }
     printf("\n");

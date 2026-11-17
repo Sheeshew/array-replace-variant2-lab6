@@ -24,8 +24,12 @@ int main(void) {
     return 0;
 }
 
-/* Заглушки. Кожен доповнить свою функцію у своїй гілці. */
+
 void print_array(const double a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%.2f ", a[i]);
+    }
+    printf("\n");
 }
 
 double mean_of_negatives(const double a[], int n) {

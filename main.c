@@ -27,7 +27,7 @@ int main(void) {
 
 void print_array(const double a[], int n) {
     for (int i = 0; i < n; i++) {
-        printf("%.2f ", a[i]);
+        printf("[%2d]=%7.2f  ", i + 1, a[i]);
     }
     printf("\n");
 }

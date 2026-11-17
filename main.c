@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define MAX_N 100
 
@@ -8,9 +10,19 @@ double mean_of_positives(const double a[], int n);
 void replace_elements(double a[], int n, double mean_neg, double mean_pos);
 
 int main(void) {
-    int n = 14;
-    double a[MAX_N] = {5, -2, 3, -4, 7, -6, 8, 1, -9, 4, -3, 6, -1, 2};
+    int n;
+    double a[MAX_N];
 
+    printf("Кількість елементів (від 1 до %d): ", MAX_N);
+    if (scanf("%d", &n) != 1 || n < 1 || n > MAX_N) {
+        printf("Некоректна кількість елементів.\n");
+        return 1;
+    }
+
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < n; i++) {
+        a[i] = rand() % 21 - 10;
+    }
     printf("Заданий масив:\n");
     print_array(a, n);
 

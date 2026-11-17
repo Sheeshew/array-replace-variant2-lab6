@@ -1,4 +1,4 @@
-#include <stdio.h>
+    #include <stdio.h>
 
 #define MAX_N 100
 
@@ -26,8 +26,10 @@ int main(void) {
 
 
 void print_array(const double a[], int n) {
-    for (int i = 0; i < n; i++) {
+    int i = 0;
+    while (i < n) {
         printf("%.2f ", a[i]);
+        i++;
     }
     printf("\n");
 }

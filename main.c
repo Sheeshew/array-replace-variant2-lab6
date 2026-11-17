@@ -1,4 +1,6 @@
-    #include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define MAX_N 100
 
@@ -9,23 +11,35 @@ void replace_elements(double a[], int n, double mean_neg, double mean_pos);
 
 int main(void) {
     int n;
-double a[MAX_N];
+    int mode;
+    double a[MAX_N];
 
-printf("Введіть кількість елементів масиву (1-%d): ", MAX_N);
-if (scanf("%d", &n) != 1 || n < 1 || n > MAX_N) {
-    printf("Помилка: неправильний розмір масиву!\n");
-    return 1;
-}
-
-printf("Введіть %d елементів масиву:\n", n);
-for (int i = 0; i < n; i++) {
-    printf("a[%d] = ", i);
-    if (scanf("%lf", &a[i]) != 1) {
-        printf("Помилка введення елемента!\n");
+    printf("1 - введення з клавіатури, 2 - випадкові числа: ");
+    if (scanf("%d", &mode) != 1 || (mode != 1 && mode != 2)) {
+        printf("Оберіть 1 або 2.\n");
         return 1;
     }
-}
 
+    printf("Кількість елементів (від 1 до %d): ", MAX_N);
+    if (scanf("%d", &n) != 1 || n < 1 || n > MAX_N) {
+        printf("Некоректна кількість елементів.\n");
+        return 1;
+    }
+
+    if (mode == 1) {
+        for (int i = 0; i < n; i++) {
+            printf("a[%d] = ", i + 1);
+            if (scanf("%lf", &a[i]) != 1) {
+                printf("Введіть число.\n");
+                return 1;
+            }
+        }
+    } else {
+        srand((unsigned)time(NULL));
+        for (int i = 0; i < n; i++) {
+            a[i] = rand() % 21 - 10;
+        }
+    }
     printf("Заданий масив:\n");
     print_array(a, n);
 

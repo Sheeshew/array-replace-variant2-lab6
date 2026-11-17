@@ -8,8 +8,23 @@ double mean_of_positives(const double a[], int n);
 void replace_elements(double a[], int n, double mean_neg, double mean_pos);
 
 int main(void) {
-    int n = 14;
-    double a[MAX_N] = {5, -2, 3, -4, 7, -6, 8, 1, -9, 4, -3, 6, -1, 2};
+    int n;
+double a[MAX_N];
+
+printf("Введіть кількість елементів масиву (1-%d): ", MAX_N);
+if (scanf("%d", &n) != 1 || n < 1 || n > MAX_N) {
+    printf("Помилка: неправильний розмір масиву!\n");
+    return 1;
+}
+
+printf("Введіть %d елементів масиву:\n", n);
+for (int i = 0; i < n; i++) {
+    printf("a[%d] = ", i);
+    if (scanf("%lf", &a[i]) != 1) {
+        printf("Помилка введення елемента!\n");
+        return 1;
+    }
+}
 
     printf("Заданий масив:\n");
     print_array(a, n);

@@ -9,7 +9,7 @@ void replace_elements(double a[], int n, double mean_neg, double mean_pos);
 
 int main(void) {
     int n = 14;
-    double a[MAX_N] = {5, -2, 3, -4, 7, -6, 8, 1, -9, 4, -3, 6, -1, 2};
+    double a[MAX_N] = {5, 2, 3, 4, 7, 6, 8, 1, 9, 4, 3, 6, 1, 2};
 
     printf("Заданий масив:\n");
     print_array(a, n);

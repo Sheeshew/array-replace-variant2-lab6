@@ -29,12 +29,37 @@ void print_array(const double a[], int n) {
 }
 
 double mean_of_negatives(const double a[], int n) {
-    return 0;
+    double sum = 0;
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] < 0) {
+            sum += a[i];
+            count++;
+        }
+    }
+
+    if (count == 0) {
+        return 1;
+    }
+    return sum / count;
 }
 
 double mean_of_positives(const double a[], int n) {
-    return 0;
-}
+    double sum = 0;
+    int count = 0;
 
+    for (int i = 0; i < n; i++) {
+        if (a[i] > 0) {
+            sum += a[i];
+            count++;
+        }
+    }
+
+    if (count == 0) {
+        return 0;
+    }
+    return sum / count;
+}
 void replace_elements(double a[], int n, double mean_neg, double mean_pos) {
 }
